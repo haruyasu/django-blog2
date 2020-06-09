@@ -53,3 +53,16 @@ main {
 .formpost {
     margin-bottom: 1rem;
 }
+
+/* index */
+.index-img {
+    object-fit: cover;
+    height: 240px;
+}
+
+/* detail */
+.detail-img {
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+}
