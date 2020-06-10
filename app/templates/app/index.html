@@ -5,20 +5,20 @@
 <div class="row my-4">
     <div class="col-md-8">
         {% for post in post_data %}
-            <div class="card mb-4 index">
-                {% if post.image %}
-                    <img class="card-img-top index-img" src="{{ post.image.url }}" alt="">
-                {% endif %}
-                <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text">{{ post.content|truncatechars:100 }}</p>
-                    <div class="btn btn-warning">詳細</div>
-                </div>
-                <div class="card-footer text-muted">
-                    {{ post.created|date }} by {{ post.author }}
-                </div>
-                <a class="stretched-link" href="{% url 'post_detail' post.id %}"></a>
+        <div class="card mb-4 index">
+            {% if post.image %}
+                <img class="card-img-top index-img" src="{{ post.image.url }}" alt="">
+            {% endif %}
+            <div class="card-body">
+                <h2 class="card-title">{{ post.title }}<span class="small"> - {{ post.category }}</span></h2>
+                <p class="card-text">{{ post.content|truncatechars:100 }}</p>
+                <div class="btn btn-warning">詳細</div>
             </div>
+            <div class="card-footer text-muted">
+                {{ post.created|date }} by {{ post.author }}
+            </div>
+            <a class="stretched-link" href="{% url 'post_detail' post.id %}"></a>
+        </div>
         {% endfor %}
     </div>
 
@@ -31,6 +31,25 @@
                     初めてDjangoを触る方向けのチュートリアルです。
                     最小限の機能を構築してDjangoを学習しましょう。
                 </p>
+            </div>
+        </div>
+
+        <div class="card my-4">
+            <h5 class="card-header">カテゴリ</h5>
+            <div class="card-body">
+                <div class="row">
+                    {% for category in category_data %}
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="{% url 'category' category %}">
+                                        {{ category.name }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

@@ -66,3 +66,14 @@ main {
     width: 100%;
     height: 400px;
 }
+
+/* category */
+
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: orange;
+}

@@ -2,13 +2,14 @@
 
 {% block content %}
 <h2 class="my-4">{{ post_data.title }}</h2>
+<p>{{ post_data.category }}</p>
 <hr>
 <p>{{ post_data.created }} by {{ post_data.author }}</p>
 <hr>
 {% if post_data.image %}
     <img class="rounded detail-img" src="{{ post_data.image.url }}" alt="">        
+    <hr>
 {% endif %}
-<hr>
 <p>{{ post_data.content|linebreaksbr }}</p>
 {% if user.is_authenticated %}
     <hr>
